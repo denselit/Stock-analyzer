@@ -7,10 +7,25 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import numpy as np
+import requests
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import warnings
 warnings.filterwarnings("ignore")
+
+# ✅ Yahoo Finance 봇 차단 우회: 브라우저처럼 보이는 헤더 설정
+def get_yf_session():
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+    })
+    return session
 
 # ============================================================
 # 페이지 설정
@@ -130,7 +145,8 @@ def get_rsi_signal(rsi, expensive):
 
 def analyze_single(symbol, w_q, w_t):
     try:
-        stock = yf.Ticker(symbol)
+        session = get_yf_session()  # ✅ 세션 적용
+        stock = yf.Ticker(symbol, session=session)
         info  = stock.info
         hist  = stock.history(period="1y")
         if hist.empty or len(hist) < 20:
