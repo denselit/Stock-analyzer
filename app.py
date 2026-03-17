@@ -15,16 +15,8 @@ warnings.filterwarnings("ignore")
 
 # ✅ Yahoo Finance 봇 차단 우회: 브라우저처럼 보이는 헤더 설정
 def get_yf_session():
-    session = requests.Session()
-    session.headers.update({
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/120.0.0.0 Safari/537.36"
-        ),
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.5",
-    })
+    from curl_cffi import requests as curl_requests
+    session = curl_requests.Session(impersonate="chrome120")
     return session
 
 # ============================================================
