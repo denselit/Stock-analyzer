@@ -51,10 +51,10 @@ st.markdown("""
 # 기본 종목
 # ============================================================
 DEFAULT_TICKERS = [
-    "NVDA", "AVGO", "ALAB", "CRDO", "CLS", "ARM", "MRVL", "SNDK",
-    "TER", "SERV", "VRTX", "ALNY", "LLY", "RKLB", "AVAV", "AXON", "CRWD",
-    "NOW", "PLTR", "ORCL", "VRT", "ETN", "GEV",
-    "000660.KS", "005930.KS", "007660.KS", "012450.KS", "034020.KS", "042700.KS", "079550.KS", "267260.KS", "298040.KS", "307950.KS", "454910.KS"
+    "NVDA", "AVGO", "ALAB", "CRDO", "CLS", "ARM", "MRVL", "SNDK", "LITE",
+    "TER", "SERV", "VRTX", "ALNY", "LLY", "RKLB", "AVAV", "HWM",
+    "AXON", "CRWD", "NOW", "PLTR", "ORCL", "VRT", "ETN", "GEV", "CCJ",
+    "000660.KS", "005930.KS", "007660.KS", "012450.KS", "034020.KS", "042700.KS", "079550.KS", "267260.KS", "307950.KS",
 ]
 
 # ============================================================
