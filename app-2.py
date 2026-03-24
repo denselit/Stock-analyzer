@@ -412,7 +412,7 @@ if run_btn:
         with col_f2: min_t = st.slider("T Score 최소값",  0, 11, 0)
         filtered = df[(df["Q Score"] >= min_q) & (df["T Score"] >= min_t)]
         st.dataframe(
-            filtered[["Rank","Ticker","Name","Q Score","T Score","Final Score","분류","RSI","MDD(%)","현재가"]],
+            filtered[["Rank","Ticker","Name","Q Score","T Score","Final Score","분류","RSI","PSR","MDD(%)","현재가"]],
             use_container_width=True, hide_index=True
         )
         # Excel 다운로드
